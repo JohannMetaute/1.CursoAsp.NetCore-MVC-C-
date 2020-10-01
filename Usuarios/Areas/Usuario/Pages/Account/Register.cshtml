@@ -1,0 +1,45 @@
+﻿@page "/Usuario/Register/{data?}"
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h3>Registrar</h3>
+                    </div>
+                    <img src="~/imagenes/icon/phoenis.png" class="mx-auto w-75" />
+                    <div class="card-body">
+                        <form method="post">
+                            <div class="form-group">
+                                <!--<label asp-for="Input.Email"></label>-->
+                                <input asp-for="Input.Email" placeholder="Usuario" class="form-control" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <!--<label asp-for="Input.Password"></label>-->
+                                <input asp-for="Input.Password" placeholder="Contraseña" class="form-control" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <!--<label asp-for="Input.Password"></label>-->
+                                <input asp-for="Input.ConfirmPassword" placeholder="Confirmar contraseña" class="form-control" />
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            </div>
+                        </form>
+                        <label id="Message" class="text-danger">@Html.DisplayFor(m => m.Input.ErrorMessage)</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
